@@ -14,7 +14,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'is not valid with title exceeding 250 characters' do
-    expect(Post.new(author: @author, title: "0" * 251)).to_not be_valid
+    expect(Post.new(author: @author, title: '0' * 251)).to_not be_valid
   end
 
   it 'is not valid with non-numeric comments_counter' do
@@ -36,7 +36,7 @@ RSpec.describe Post, type: :model do
   context '#five_recent_comments' do
     before :all do
       @post = Post.create(author: @author, title: 'Title')
-      8.times { |comment_i| Comment.create(user: @author, post: @post, text: "#{comment_i + 1}") }
+      8.times { |comment_i| Comment.create(user: @author, post: @post, text: (comment_i + 1).to_s) }
     end
 
     it 'returns three comments' do

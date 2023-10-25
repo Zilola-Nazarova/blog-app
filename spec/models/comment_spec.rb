@@ -5,8 +5,8 @@ RSpec.describe Comment, type: :model do
     @user = User.create(name: 'Tom')
     @post = Post.create(author: @user, title: 'Title')
   end
-  
- context '#create' do
+
+  context '#create' do
     it 'is valid with existing user and post' do
       expect(Comment.new(user: @user, post: @post)).to be_valid
     end
@@ -22,7 +22,7 @@ RSpec.describe Comment, type: :model do
 
   context '#update_comments_counter' do
     before :all do
-      8.times { |comment_i| Comment.create(user: @user, post: @post, text: "#{comment_i + 1}") }
+      8.times { |comment_i| Comment.create(user: @user, post: @post, text: (comment_i + 1).to_s) }
     end
 
     it 'keeps track of comments and equals 8' do

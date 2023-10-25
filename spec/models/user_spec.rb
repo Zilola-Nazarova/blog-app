@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
   context '#three_recent_posts' do
     before :all do
       @user = User.create(name: 'Tom')
-      5.times { |post_i| Post.create(author: @user, title: "#{post_i + 1}") }
+      5.times { |post_i| Post.create(author: @user, title: (post_i + 1).to_s) }
     end
 
     it 'returns three posts' do
