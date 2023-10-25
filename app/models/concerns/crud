@@ -23,7 +23,7 @@
 
 # User.where(name: 'Alan').each { |user| user.update(name: 'Stieve')}
 # Post.find_by(text: 'This is my third post').update(title: 'I am not a techer')
-# Comment.where(user_id: 20).each { |comment| comment.update(post_id: 20)}
+# Comment.where(user: third_user).each { |comment| comment.update(post: second_post)}
 
 # User.find_by(bio: 'Teacher from Poland.').delete
 # Post.find_by(title: 'I am not a techer').delete
