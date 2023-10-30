@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Geneva, Arial, sans-serif;
+  color: #000;
+  background-color: #fff;
+}
+
+header { 
+  background-color: aqua;
+}
+
+footer { 
+  background-color: aquamarine;
+  color: red;
+}
+
+li {
+  list-style-type: none;
+}
+
+#content {
+ background-color: bisque;
+}
+
+#user_container {
+  height: 5rem;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  background-color: tan;
+}
+
+#user_container a {
+  display: flex;
+  height: 100%;
+}
+
+#user_text {
+  border: 1px solid #fff;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 4;
+}
+
+#user_text p {
+  align-self: flex-end;
+}
+
+#user_photo {
+  flex: 1;
+}
