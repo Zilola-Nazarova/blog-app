@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   layout 'standard'
-  def index; end
+  def index
+    @users = User.order(id: :asc)
+  end
 
-  def show; end
+  def show
+    @user = User.find(params[:id])
+  end
 end
