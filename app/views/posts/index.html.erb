@@ -1,25 +1,22 @@
-<h1>Here is a list of posts for a given user</h1>
-<%= image_tag @user.photo, id: "user_photo" %><br>
-<div id="user_text">
-  <h2><%= @user.name %></h2><br>
-  <p>Number of posts: <%= @user.posts_counter.to_i %></p>
+<div id="user_container">
+   <%= render partial: "users/user_info", locals: { user: @user } %>
 </div>
 
-<% @posts.each_with_index do |post, i| %>
-  <%= link_to "/users/#{@user.id}/posts/#{post.id}" do %>
-    <li id="post_container">
-      <h2>Post #<%= i + 1 %></h2>
-      <h3><%= post.title %></h3>
-      <p><%= post.text %></p>
-      <p>Comments: <%= post.comments_counter.to_i %></p>
-      <p>Likes: <%= post.likes_counter.to_i %></p>
+<ul id="post_container">
+  <% @posts.each_with_index do |post, i| %>
+    <li>
+      <%= link_to "/users/#{@user.id}/posts/#{post.id}", id: "post" do %>
+        <%= render partial: "posts/post_info", locals: { post: post } %>
+      <% end %>
+      <ul id="comment_container">
+        <% post.five_recent_comments.each do |comment| %>
+          <li id="comment">
+            <p><%= comment.user.name %>: <%= comment.text %></p>
+          </li>
+        <% end %>
+      </ul>
     </li>
   <% end %>
-  <ul id="comments_container">
-    <% post.five_recent_comments.each do |comment| %>
-      <li id="comment">
-        <%= comment.text %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+</ul>
+
+<%= will_paginate %>

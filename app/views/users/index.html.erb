@@ -1,12 +1,7 @@
-<h1>Here is a list of users</h1>
 <% @users.each do |user| %>
-  <li id="user_container">
-    <%= link_to user_url(user) do %>
-      <%= image_tag user.photo, id: "user_photo" %><br>
-      <div id="user_text">
-        <h2><%= user.name %></h2><br>
-        <p>Number of posts: <%= user.posts_counter.to_i %></p>
-      </div>
+  <li>
+    <%= link_to user_url(user), id: "user_container" do %>
+      <%= render partial: "users/user_info", locals: { user: user } %>
     <% end %>
   </li>
 <% end %>
