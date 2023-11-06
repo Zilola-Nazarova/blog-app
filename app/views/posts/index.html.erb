@@ -16,7 +16,7 @@
       <% end %>
       <ul class="comments_container">
       <h3>Comments:</h3>
-        <% post.five_recent_comments.each do |comment| %>
+        <% post.five_recent_comments.includes([:user]).each do |comment| %>
           <li class="comment">
             <p><%= comment.user.name %>: <%= comment.text %></p>
           </li>
