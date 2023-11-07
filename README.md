@@ -98,6 +98,10 @@ Login to your GitHub account. Clone this repository to your desired folder:
 > cd my-folder
 > git clone git@github.com:Zilola-Nazarova/blog-app.git
 
+Setup database:
+> sudo -u postgres createuser --interactive --pwprompt
+(provide the username and password described in [config/database.yml](./config/database.yml))
+
 ### Install
 
 Install the dependencies:
@@ -106,6 +110,9 @@ Install the dependencies:
 
 Create database:
 > bin/rails db:create
+
+(OPTIONAL) Fill the database with sample records:
+> bin/rails db:seed
 
 ### Usage
 
@@ -122,6 +129,10 @@ To run tests, run the following command:
 You can also check linter errors by running these commands:
 > rubocop
 
+For testing the confirmation emails:
+> gem install mailcatcher
+
+Open [http://localhost:1080](http://localhost:1080) to view it in your browser.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -133,6 +144,11 @@ You can also check linter errors by running these commands:
 - GitHub: [@Zilola-Nazarova](https://github.com/Zilola-Nazarova)
 - Twitter: [@NazarovaZi](https://twitter.com/NazarovaZi)
 - LinkedIn: [in/NazarovaZi](https://www.linkedin.com/in/zilola-nazarova)
+
+👤 **Fatima Najafi**
+
+- GitHub: [@fatima-najafi](https://github.com/fatima-najafi)
+- LinkedIn: [in/fatima-najafi](https://www.linkedin.com/in/fatima-najafi/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
