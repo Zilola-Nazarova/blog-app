@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-first_user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
-second_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.')
-third_user = User.create(name: 'Alan', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Singer from Mexico.')
-fourth_user = User.create(name: 'Alan', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Singer from Mexico.')
+first_user = User.create(name: 'Tom', bio: 'Teacher from Mexico.', email: 'tom@example.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+second_user = User.create(name: 'Lilly', bio: 'Teacher from Poland.', email: 'lilly@example.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+third_user = User.create(name: 'Alan', bio: 'Singer from Mexico.', email: 'alan@example.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+fourth_user = User.create(name: 'Alan', bio: 'Singer from Mexico.', email: 'alan2@example.com', :password => 'topsecret', :password_confirmation => 'topsecret')
 
 first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post')
 second_post = Post.create(author: first_user, title: 'My name is Tom', text: 'This is my second post')
