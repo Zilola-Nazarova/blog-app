@@ -13,6 +13,10 @@
   <% end %>
 </div>
 
+<% if can? :create, Like %>
+  <%= render partial: "likes/like_action", locals: { post: @post } %>
+<% end %>
+
 <% flash.each do |name, msg| -%>
   <%= content_tag :div, msg, class: name %>
 <% end -%>
@@ -33,8 +37,6 @@
     </li>
   <% end %>
 </ul>
-
-<%= render partial: "likes/like_action", locals: { post: @post } %>
 
 <% if can? :create, Comment %>
   <%= link_to 'New Comment', new_user_post_comment_path(@post.author, @post) %>
