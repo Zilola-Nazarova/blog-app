@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(params.require(:comment).permit(:text, :user_id, :post_id))
+    @comment = Comment.new(comment_params)
     @comment.user = current_user
     if @comment.save
       flash[:success] = 'Comment created successfully!'
@@ -14,5 +14,11 @@ class CommentsController < ApplicationController
       flash.now[:error] = 'Error: Comment could not be created!'
       render :new, locals: { comment: @comment }
     end
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:text, :user_id, :post_id)
   end
 end
