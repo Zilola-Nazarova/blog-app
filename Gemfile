@@ -3,9 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
+gem 'cancancan'
 gem 'devise'
 gem 'mailcatcher'
 gem 'sass-rails'
+
 # Rubocop linters
 gem 'rubocop', '>= 1.0', '< 2.0'
 
