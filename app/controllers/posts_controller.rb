@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   layout 'standard'
   def index
     @user = User.find(params[:user_id])
@@ -33,7 +34,7 @@ class PostsController < ApplicationController
     flash[:success] = 'Post was deleted successfully!'
     redirect_to user_posts_url
   end
-  
+
   private
 
   def post_params
