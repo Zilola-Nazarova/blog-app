@@ -1,9 +1,16 @@
 <div class="post" >
   <h3><%= @post.title %> by <%= @post.author.name %></h3>
+  <p><%= @post.text %></p>
+  
   <p class="counter">
     Comments: <%= @post.comments_counter.to_i %>, Likes: <%= @post.likes_counter.to_i %>
   </p>
-  <p><%= @post.text %></p>
+
+  <% if can? :destroy, @post %>
+    <%= form_with model: @post, url: user_post_path(@post.author, @post), method: :delete do |f| %>
+      <%= f.submit "Delete Post" %>
+    <% end %>
+  <% end %>
 </div>
 
 <% flash.each do |name, msg| -%>
@@ -11,6 +18,7 @@
 <% end -%>
 
 <ul class="comments_container">
+  <h3>Comments:</h3>
   <% @post.comments.includes([:user]).each do |comment| %>
     <li class="comment">
       <p><%= comment.user.name %>: <%= comment.text %></p>
