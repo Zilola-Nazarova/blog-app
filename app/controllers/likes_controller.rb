@@ -8,8 +8,7 @@ class LikesController < ApplicationController
       flash[:success] = 'Liked!'
       redirect_to user_post_path(id: params[:post_id], user_id: params[:user_id])
     else
-      flash[:error] = 'You can not like twice!'
-      redirect_to user_post_path(id: params[:post_id], user_id: params[:user_id])
+      flash.now[:error] = 'You can not like twice!'
     end
   end
 
@@ -20,6 +19,8 @@ class LikesController < ApplicationController
     if @like.destroy!
       flash[:success] = 'Unliked!'
       redirect_to user_post_path(id: params[:post_id], user_id: params[:user_id])
+    else
+      flash.now[:error] = 'Something went wrong'
     end
   end
 
