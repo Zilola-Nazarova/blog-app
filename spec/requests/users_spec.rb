@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :request do
   context 'GET /index' do
     before :each do
-      User.create(name: 'Tom')
+      User.create(name: 'Tom', email: 'tom@example.com', password: 'topsecret')
       get users_path
     end
 
@@ -25,7 +25,7 @@ RSpec.describe 'Users', type: :request do
   end
 
   context 'GET /show' do
-    let(:valid_attributes) { { 'name' => 'Tom' } }
+    let(:valid_attributes) { { 'name' => 'Tom', 'email' => 'tom@example.com', 'password' => 'topsecret' } }
     let(:user) { User.create! valid_attributes }
 
     before :each do
