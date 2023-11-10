@@ -1,12 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before :all do
-    Comment.delete_all
-    Post.delete_all
-    User.delete_all
-  end
-
   context '#create validates required fields' do
     it 'is valid with existing name, email and password' do
       expect(User.create(name: 'Tom', email: 'tom@example.com', password: 'topsecret')).to be_valid

@@ -2,11 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   before :all do
-    Like.delete_all
-    Comment.delete_all
-    Post.delete_all
-    User.delete_all
-    @author = User.create(name: 'Tom', email: 'tom@example.com', password: 'topsecret')
+    @author = User.create(name: 'Mike', email: 'mike@example.com', password: 'topsecret')
   end
 
   context '#create validates required fields' do
