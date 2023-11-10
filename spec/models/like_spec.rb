@@ -22,7 +22,8 @@ RSpec.describe Like, type: :model do
 
   context '#update_likes_counter' do
     before :all do
-      @user2 = User.create(name: 'Lilly', bio: 'Teacher from Poland.', email: 'lilly@example.com', :password => 'topsecret')
+      @user2 = User.create(name: 'Lilly', bio: 'Teacher from Poland.', email: 'lilly@example.com',
+                           password: 'topsecret')
       2.times { Like.create(user: @user, post: @post) }
       3.times { Like.create(user: @user1, post: @post) }
     end
