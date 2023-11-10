@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Like, type: :model do
   before :all do
+    Comment.delete_all
+    Post.delete_all
+    User.delete_all
     @user = User.create(name: 'Tom', email: 'tom@example.com', password: 'topsecret')
     @post = Post.create(author: @user, title: 'Title')
   end
@@ -22,10 +25,10 @@ RSpec.describe Like, type: :model do
 
   context '#update_likes_counter' do
     before :all do
-      @user2 = User.create(name: 'Lilly', bio: 'Teacher from Poland.', email: 'lilly@example.com',
+      @user1 = User.create(name: 'Lilly', bio: 'Teacher from Poland.', email: 'lilly@example.com',
                            password: 'topsecret')
       2.times { Like.create(user: @user, post: @post) }
-      3.times { Like.create(user: @user1, post: @post) }
+      2.times { Like.create(user: @user1, post: @post) }
     end
 
     it 'keeps track of likes and equals 8' do
