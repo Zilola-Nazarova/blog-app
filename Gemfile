@@ -7,6 +7,7 @@ gem 'cancancan'
 gem 'devise'
 gem 'jwt'
 gem 'mailcatcher'
+gem 'rswag'
 gem 'sass-rails'
 
 # Rubocop linters
