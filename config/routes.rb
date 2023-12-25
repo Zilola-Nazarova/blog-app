@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :users, only: [:show] do
+    post '/auth/login', to: 'authentication#login'
+    resources :users do
       resources :posts, only: [:index] do
         resources :comments, only: [:index, :create]
       end
